@@ -18,13 +18,18 @@ best <- function(state, outcome) {
         
         #x<-data1$Hospital.Name
         #mx<-tapply(data1[,11],x,max)
+        outcome_col<-c(11,17,23)
+        ind<-which(outcomes_list==outcome)
+        ind_c<-outcome_col[ind]
         
-        data1[,11]<-as.numeric(data1[,11])
-        bad<-is.na(data1[,11])
+        data1[,ind_c]<-as.numeric(data1[,ind_c])
+        bad<-is.na(data1[,ind_c])
         data1<-data1[!bad,]
         
-        max(data1[,11])
-        ind<-which(data1[,11] == max(data1[,11]), arr.ind = TRUE)
+        ind<-which(data1$State == state, arr.ind = TRUE)
+        data1<-data1[ind,]
+        
+        ind<-which(data1[,ind_c] == min(data1[,ind_c],na.rm=TRUE), arr.ind = TRUE)
         rs<-data1[ind,2]
         print(rs)
 }
