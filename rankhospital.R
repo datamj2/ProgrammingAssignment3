@@ -13,7 +13,7 @@ rankhospital <- function(state, outcome, num = "best") {
         if (!state %in% states_all) {
                 stop("invalid state")
         }
-        
+        #
         outcomes_list <- c("heart attack", "heart failure", "pneumonia")
         if (!outcome %in% outcomes_list) {
                 stop("invalid outcome")
