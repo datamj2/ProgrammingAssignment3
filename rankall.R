@@ -50,7 +50,7 @@ rankall <- function(outcome, num = "best") {
                 hosp_list<-sapply(df,function(x) as.character(x$hospital[num]))
         }
         
-        
+       
         ## Return a data frame with the hospital names and the
         ## (abbreviated) state name
         
